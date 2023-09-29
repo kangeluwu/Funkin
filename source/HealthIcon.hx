@@ -13,7 +13,7 @@ class HealthIcon extends FlxSprite
 
 	var char:String = '';
 	var isPlayer:Bool = false;
-
+    var disCharsReal:Array<String> = ['bf-pixel','bf-old','bf-main','pico-d1','pico-d2','pico-d3'];
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
@@ -39,7 +39,13 @@ class HealthIcon extends FlxSprite
 
 	public function changeIcon(newChar:String):Void
 	{
-		if (newChar != 'bf-pixel' && newChar != 'bf-old')
+		var useSplit = true;
+	for (real in disCharsReal){
+		if (newChar == real)
+			useSplit = false;
+		}
+
+		if (useSplit)
 			newChar = newChar.split('-')[0].trim();
 
 		if (newChar != char)

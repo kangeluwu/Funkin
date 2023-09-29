@@ -36,6 +36,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			case 'stress':
 				daBf = 'bf-holding-gf-dead';
+			case 'tormentor' | 'guns-pico' | 'chiller':
+				daBf = 'bf-main';
 		}
 
 		super();

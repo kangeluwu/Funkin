@@ -5,17 +5,25 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 
+import flixel.graphics.FlxGraphic;
+import openfl.display.BitmapData;
+import haxe.Json;
+
+import flash.media.Sound;
+
+using StringTools;
+import openfl.display3D.textures.RectangleTexture;
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
 
 	static var currentLevel:String;
-
+	public static var localTrackedAssets:Array<String> = [];
 	static public function setCurrentLevel(name:String)
 	{
 		currentLevel = name.toLowerCase();
 	}
-
+	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	static function getPath(file:String, type:AssetType, library:Null<String>)
 	{
 		if (library != null)
@@ -95,9 +103,32 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function image(key:String, ?library:String)
+	public static function image(key:String, ?library:String)
 	{
-		return getPath('images/$key.png', IMAGE, library);
+		var bitmap:BitmapData = null;
+		var file:String = null;
+		file = getPath('images/$key.png', IMAGE, library);
+			if (currentTrackedAssets.exists(file))
+			{
+				localTrackedAssets.push(file);
+				return currentTrackedAssets.get(file);
+			}
+			else if (OpenFlAssets.exists(file, IMAGE))
+				bitmap = OpenFlAssets.getBitmapData(file);
+
+			if (bitmap != null)
+				{
+					localTrackedAssets.push(file);
+					var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(bitmap, false, file);
+					newGraphic.persist = true;
+					newGraphic.destroyOnNoUse = false;
+					currentTrackedAssets.set(file, newGraphic);
+					return newGraphic;
+				}
+		
+
+		trace('oh no its returning null NOOOO ($file)');
+		return null;
 	}
 
 	inline static public function font(key:String)

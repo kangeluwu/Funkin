@@ -277,8 +277,6 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('scared', 'BF idle shaking', 24, true);
 
-				loadOffsetFile(curCharacter);
-
 				playAnim('idle');
 
 				flipX = true;
@@ -487,6 +485,130 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+
+				//my genius mod real
+
+				case 'pico-d1':
+					tex = Paths.getSparrowAtlas('characters/wtfW1/pico-d1');
+					frames = tex;
+					quickAnimAdd('idle', "Pico Idle Dance");
+					quickAnimAdd('singUP', 'pico Up note0');
+					quickAnimAdd('singDOWN', 'Pico Down Note0');
+					if (isPlayer)
+					{
+						quickAnimAdd('singLEFT', 'Pico NOTE LEFT0');
+						quickAnimAdd('singRIGHT', 'Pico Note Right0');
+						quickAnimAdd('singRIGHTmiss', 'Pico Note Right Miss');
+						quickAnimAdd('singLEFTmiss', 'Pico NOTE LEFT miss');
+					}
+					else
+					{
+						// Need to be flipped! REDO THIS LATER!
+						quickAnimAdd('singLEFT', 'Pico Note Right0');
+						quickAnimAdd('singRIGHT', 'Pico NOTE LEFT0');
+						quickAnimAdd('singRIGHTmiss', 'Pico NOTE LEFT miss');
+						quickAnimAdd('singLEFTmiss', 'Pico Note Right Miss');
+					}
+	
+					quickAnimAdd('singUPmiss', 'pico Up note miss');
+					quickAnimAdd('singDOWNmiss', 'Pico Down Note MISS');
+	
+					loadOffsetFile('wtfW1/' + curCharacter);
+	
+					playAnim('idle');
+	
+					flipX = true;
+
+					case 'pico-d2':
+						tex = Paths.getSparrowAtlas('characters/wtfW1/pico-d2');
+						frames = tex;
+						quickAnimAdd('idle', "Pico Idle Dance");
+						quickAnimAdd('singUP', 'pico Up note0');
+						quickAnimAdd('singDOWN', 'Pico Down Note0');
+						if (isPlayer)
+						{
+							quickAnimAdd('singLEFT', 'Pico NOTE LEFT0');
+							quickAnimAdd('singRIGHT', 'Pico Note Right0');
+							quickAnimAdd('singRIGHTmiss', 'Pico Note Right Miss');
+							quickAnimAdd('singLEFTmiss', 'Pico NOTE LEFT miss');
+						}
+						else
+						{
+							// Need to be flipped! REDO THIS LATER!
+							quickAnimAdd('singLEFT', 'Pico Note Right0');
+							quickAnimAdd('singRIGHT', 'Pico NOTE LEFT0');
+							quickAnimAdd('singRIGHTmiss', 'Pico NOTE LEFT miss');
+							quickAnimAdd('singLEFTmiss', 'Pico Note Right Miss');
+						}
+		
+						quickAnimAdd('singUPmiss', 'pico Up note miss');
+						quickAnimAdd('singDOWNmiss', 'Pico Down Note MISS');
+		
+						loadOffsetFile('wtfW1/' + curCharacter);
+		
+						playAnim('idle');
+		
+						flipX = true;
+		
+						case 'pico-d3':
+							tex = Paths.getSparrowAtlas('characters/wtfW1/pico-d3');
+							frames = tex;
+							quickAnimAdd('idle', "Pico Idle Dance");
+							quickAnimAdd('singUP', 'pico Up note0');
+							quickAnimAdd('singDOWN', 'Pico Down Note0');
+							if (isPlayer)
+							{
+								quickAnimAdd('singLEFT', 'Pico NOTE LEFT0');
+								quickAnimAdd('singRIGHT', 'Pico Note Right0');
+								quickAnimAdd('singRIGHTmiss', 'Pico Note Right Miss');
+								quickAnimAdd('singLEFTmiss', 'Pico NOTE LEFT miss');
+							}
+							else
+							{
+								// Need to be flipped! REDO THIS LATER!
+								quickAnimAdd('singLEFT', 'Pico Note Right0');
+								quickAnimAdd('singRIGHT', 'Pico NOTE LEFT0');
+								quickAnimAdd('singRIGHTmiss', 'Pico NOTE LEFT miss');
+								quickAnimAdd('singLEFTmiss', 'Pico Note Right Miss');
+							}
+			
+							quickAnimAdd('singUPmiss', 'pico Up note miss');
+							quickAnimAdd('singDOWNmiss', 'Pico Down Note MISS');
+			
+							loadOffsetFile('wtfW1/' + curCharacter);
+			
+							playAnim('idle');
+			
+							flipX = true;
+			
+							case 'bf-main':
+								var tex = Paths.getSparrowAtlas('characters/wtfW1/bf');
+								frames = tex;
+								quickAnimAdd('idle', 'BF idle dance');
+								quickAnimAdd('singUP', 'BF NOTE UP0');
+								quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+								quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+								quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+								quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+								quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+								quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+								quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+								quickAnimAdd('hey', 'BF HEY');
+				
+								quickAnimAdd('firstDeath', "BF dies");
+								animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+								quickAnimAdd('deathConfirm', "BF Dead confirm");
+				
+								animation.addByPrefix('scared', 'BF idle shaking', 24, true);
+				
+								loadOffsetFile('wtfW1/bf');
+			
+								playAnim('idle');
+				
+								flipX = true;
+	
+				
+
 		}
 
 		dance();

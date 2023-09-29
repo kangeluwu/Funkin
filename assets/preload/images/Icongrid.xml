@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Icongrid.png">
+	<!-- Created with Adobe Animate version 22.0.1.105 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Bf_icons0000" x="27" y="27" width="137" height="81" frameX="0" frameY="0" frameWidth="137" frameHeight="88"/>
+	<SubTexture name="Bf_icons0001" x="186" y="27" width="136" height="88" frameX="0" frameY="0" frameWidth="137" frameHeight="88"/>
+	<SubTexture name="Pico_icons D10000" x="344" y="27" width="119" height="97" frameX="0" frameY="-1" frameWidth="119" frameHeight="107"/>
+	<SubTexture name="Pico_icons D10001" x="27" y="146" width="118" height="107" frameX="-1" frameY="0" frameWidth="119" frameHeight="107"/>
+	<SubTexture name="Pico_icons D20000" x="167" y="146" width="119" height="97" frameX="0" frameY="-1" frameWidth="119" frameHeight="107"/>
+	<SubTexture name="Pico_icons D20001" x="308" y="146" width="118" height="107" frameX="-1" frameY="0" frameWidth="119" frameHeight="107"/>
+	<SubTexture name="Pico_icons D30000" x="27" y="275" width="119" height="97" frameX="0" frameY="-1" frameWidth="119" frameHeight="107"/>
+	<SubTexture name="Pico_icons D30001" x="168" y="275" width="118" height="107" frameX="-1" frameY="0" frameWidth="119" frameHeight="107"/>
+</TextureAtlas>
