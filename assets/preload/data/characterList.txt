@@ -18,3 +18,14 @@ spirit
 tankman
 pico-speaker
 bf-holding-gf
+bf-main
+gf-main
+pico-main
+pico-d1
+pico-d2
+pico-d3
+dad-d1
+dad-d2
+dad-d3
+dad-d3-ded
+chuddin

@@ -14,14 +14,14 @@ class Character extends FlxSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
-
+	public var beingControlled:Bool = false;
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = 'bf';
-
+	public var startedDeath:Bool = false;
 	public var holdTimer:Float = 0;
 
 	public var animationNotes:Array<Dynamic> = [];
-
+	public var idleSuffix:String = '';
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
 		super(x, y);
@@ -607,8 +607,133 @@ class Character extends FlxSprite
 				
 								flipX = true;
 	
-				
+				case 'dad-d1':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/W2 real/dad-d1');
+				frames = tex;
+				quickAnimAdd('idle', 'Dad idle dance0');
+				quickAnimAdd('singUP', 'Dad Sing Note UP0');
+				quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT0');
+				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN0');
+				quickAnimAdd('singLEFT', 'Dad Sing Note LEFT0');
 
+				quickAnimAdd('idle-alt', 'Dad idle dance ALT');
+				quickAnimAdd('singUP-alt', 'Dad Sing Note UP ALT');
+				quickAnimAdd('singRIGHT-alt', 'Dad Sing Note RIGHT ALT');
+				quickAnimAdd('singDOWN-alt', 'Dad Sing Note DOWN');
+				quickAnimAdd('singLEFT-alt', 'Dad Sing Note LEFT ALT');
+				loadOffsetFile('W2 real/' + curCharacter);
+
+				playAnim('idle');
+				
+				case 'dad-d2':
+					// DAD ANIMATION LOADING CODE
+					tex = Paths.getSparrowAtlas('characters/W2 real/dad-d2');
+					frames = tex;
+					quickAnimAdd('idle', 'Dad idle dance0');
+					quickAnimAdd('singUP', 'Dad Sing Note UP0');
+					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT0');
+					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN0');
+					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT0');
+	
+					quickAnimAdd('idle-alt', 'Dad idle dance ALT');
+					quickAnimAdd('singUP-alt', 'Dad Sing Note UP ALT');
+					quickAnimAdd('singRIGHT-alt', 'Dad Sing Note RIGHT ALT');
+					quickAnimAdd('singDOWN-alt', 'Dad Sing Note DOWN');
+					quickAnimAdd('singLEFT-alt', 'Dad Sing Note LEFT ALT');
+	
+					loadOffsetFile('W2 real/' + curCharacter);
+	
+					playAnim('idle');
+
+					case 'dad-d3':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/W2 real/dad-d3');
+				frames = tex;
+				quickAnimAdd('idle', 'Dad idle dance');
+				quickAnimAdd('singUP', 'Dad Sing note UP');
+				quickAnimAdd('singLEFT', 'dad sing note right');
+				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+				quickAnimAdd('singRIGHT', 'Dad Sing Note LEFT');
+
+				loadOffsetFile('W2 real/' + curCharacter);
+
+				playAnim('idle');
+
+				case 'dad-d3-ded':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/W2 real/dad-d3-ded');
+				frames = tex;
+				quickAnimAdd('idle', 'Dad idle dance0');
+					quickAnimAdd('singUP', 'Dad Sing Note UP0');
+					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT0');
+					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN0');
+					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT0');
+	
+					quickAnimAdd('idle-alt', 'Dad idle dance ALT');
+					quickAnimAdd('singUP-alt', 'Dad Sing Note UP ALT');
+					quickAnimAdd('singRIGHT-alt', 'Dad Sing Note RIGHT ALT');
+					quickAnimAdd('singDOWN-alt', 'Dad Sing Note DOWN');
+					quickAnimAdd('singLEFT-alt', 'Dad Sing Note LEFT ALT');
+				loadOffsetFile('W2 real/dad-d2');
+
+				playAnim('idle');
+
+				case 'chuddin':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/W2 real/chuddin');
+				frames = tex;
+				quickAnimAdd('idle', 'idle');
+					quickAnimAdd('singUP', 'up');
+					quickAnimAdd('singRIGHT', 'right');
+					quickAnimAdd('singDOWN', 'down');
+					quickAnimAdd('singLEFT', 'left');
+
+				loadOffsetFile('W2 real/' + curCharacter);
+                
+                
+
+				playAnim('idle');
+
+				case 'gf-main':
+					// GIRLFRIEND CODE
+					tex = Paths.getSparrowAtlas('characters/W2 real/GF_ass_sets');
+					frames = tex;
+					quickAnimAdd('singLEFT', 'GF left note');
+					quickAnimAdd('singRIGHT', 'GF Right Note');
+					quickAnimAdd('singUP', 'GF Up Note');
+					quickAnimAdd('singDOWN', 'GF Down Note');
+					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+	
+					loadOffsetFile('W2 real/' + curCharacter);
+	
+					playAnim('danceRight');
+					case 'pico-main':
+						tex = Paths.getSparrowAtlas('characters/W2 real/pico-main');
+						frames = tex;
+						quickAnimAdd('idle', "Pico Idle Dance");
+						quickAnimAdd('singUP', 'pico Up note0');
+						quickAnimAdd('singDOWN', 'Pico Down Note0');
+						if (isPlayer)
+						{
+							quickAnimAdd('singLEFT', 'Pico Note Right0');
+							quickAnimAdd('singRIGHT', 'Pico NOTE LEFT0');
+						
+						}
+						else
+						{
+							// Need to be flipped! REDO THIS LATER!
+							quickAnimAdd('singLEFT', 'Pico Note Right0');
+							quickAnimAdd('singRIGHT', 'Pico NOTE LEFT0');
+						
+						}
+		
+						loadOffsetFile('W2 real/' + curCharacter);
+		
+						playAnim('idle');
+		
+						flipX = true;
 		}
 
 		dance();
@@ -680,7 +805,7 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		if (!curCharacter.startsWith('bf'))
+		if (!beingControlled)
 		{
 			if (animation.curAnim.name.startsWith('sing'))
 			{
@@ -689,7 +814,7 @@ class Character extends FlxSprite
 
 			var dadVar:Float = 4;
 
-			if (curCharacter == 'dad')
+			if (curCharacter == 'dad' || curCharacter == 'dad-d1' || curCharacter == 'dad-d2' || curCharacter == 'dad-d3' || curCharacter == 'dad-d3-ded')
 				dadVar = 6.1;
 			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
 			{
@@ -697,7 +822,25 @@ class Character extends FlxSprite
 				holdTimer = 0;
 			}
 		}
-
+		if (beingControlled)
+			{
+				if (animation.curAnim.name.startsWith('sing'))
+					{
+						holdTimer += elapsed;
+					}
+					else
+						holdTimer = 0;
+		
+					if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished && !debugMode)
+					{
+						playAnim('idle', true, false, 10);
+					}
+		
+					if (animation.curAnim.name == 'firstDeath' && animation.curAnim.finished && startedDeath)
+					{
+						playAnim('deathLoop');
+					}
+			}
 		if (curCharacter.endsWith('-car'))
 		{
 			// looping hair anims after idle finished
@@ -710,6 +853,7 @@ class Character extends FlxSprite
 			case 'gf':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
+
 			case "pico-speaker":
 				// for pico??
 				if (animationNotes.length > 0)
@@ -750,15 +894,15 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-tankmen':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-tankmen' | 'gf-main':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
 
 						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
+							playAnim('danceRight' + idleSuffix);
+					else
+						playAnim('danceLeft' + idleSuffix);
 					}
 
 				case 'pico-speaker':
@@ -767,17 +911,17 @@ class Character extends FlxSprite
 
 				case 'tankman':
 					if (!animation.curAnim.name.endsWith('DOWN-alt'))
-						playAnim('idle');
+						playAnim('idle' + idleSuffix);
 
 				case 'spooky':
 					danced = !danced;
 
 					if (danced)
-						playAnim('danceRight');
-					else
-						playAnim('danceLeft');
+						playAnim('danceRight' + idleSuffix);
+				else
+					playAnim('danceLeft' + idleSuffix);
 				default:
-					playAnim('idle');
+					playAnim('idle' + idleSuffix);
 			}
 		}
 	}
