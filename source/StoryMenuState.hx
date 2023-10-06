@@ -30,11 +30,13 @@ class StoryMenuState extends MusicBeatState
 		['Satin-Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Ugh', 'Guns', 'Stress']
+		['Ugh', 'Guns', 'Stress'],
+		['Tormentor', 'Guns-Pico', 'Chiller'],
+		['Lament', 'Continued-Day', 'Colormatch']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, true,true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['dad', 'bf', 'gf'],
@@ -44,7 +46,9 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
-		['tankman', 'bf', 'gf']
+		['tankman', 'bf', 'gf'],
+		['pico', 'bf', 'gf'],
+		['dad', 'pico', 'bf']
 	];
 
 	var weekNames:Array<String> = [
@@ -55,7 +59,9 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"hating simulator ft. moawling",
-		"TANKMAN"
+		"TANKMAN",
+		"WTF IS THAT BLUE BF",
+		"hello chats welcome back to the litrealy every fnfc fanmade's dd week"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -324,7 +330,16 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+	switch (curWeek){
+		case 8:
+			PlayState.storyWeek = 3;
+		case 9:
+			PlayState.storyWeek = 1;
+		default:
 			PlayState.storyWeek = curWeek;
+
+	}
+	trace(PlayState.storyWeek);
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{

@@ -10,6 +10,8 @@ import flixel.util.FlxTimer;
 
 class MusicBeatState extends FlxUIState
 {
+	public var curSection:Int = 0;
+	private var stepsToDo:Int = 0;
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
 	private var controls(get, never):Controls;
@@ -33,12 +35,55 @@ class MusicBeatState extends FlxUIState
 		updateCurStep();
 		updateBeat();
 
-		if (oldStep != curStep && curStep >= 0)
-			stepHit();
+		if (oldStep != curStep)
+			{
+				if(curStep > 0)
+					stepHit();
+	
+				if(PlayState.SONG != null)
+				{
+					if (oldStep < curStep)
+						updateSection();
+					else
+						rollbackSection();
+				}
 
-		super.update(elapsed);
 	}
+	super.update(elapsed);
+	}
+	private function updateSection():Void
+		{
+			if(stepsToDo < 1) stepsToDo = 16;
+			while(curStep >= stepsToDo)
+			{
+				curSection++;
+				stepsToDo += 16;
+				sectionHit();
+			}
+		}
+	
+		private function rollbackSection():Void
+		{
+			if(curStep < 0) return;
+	
+			var lastSection:Int = curSection;
+			curSection = 0;
+			stepsToDo = 0;
+			for (i in 0...PlayState.SONG.notes.length)
+			{
+				if (PlayState.SONG.notes[i] != null)
+				{
+					stepsToDo += 16;
+					if(stepsToDo > curStep) break;
+					
+					curSection++;
+				}
+			}
+	
+			if(curSection > lastSection) sectionHit();
+		}
 
+		
 	private function updateBeat():Void
 	{
 		curBeat = Math.floor(curStep / 4);
@@ -70,4 +115,8 @@ class MusicBeatState extends FlxUIState
 	{
 		// do literally nothing dumbass
 	}
+	public function sectionHit():Void
+		{
+			//trace('Section: ' + curSection + ', Beat: ' + curBeat + ', Step: ' + curStep);
+		}
 }

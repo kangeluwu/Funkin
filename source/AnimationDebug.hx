@@ -207,7 +207,11 @@ class AnimationDebug extends FlxState
 			outputString.trim();
 			saveOffsets(outputString);
 		}
+		if (FlxG.keys.justPressed.ENTER)
+		FlxG.switchState(new PlayState());
 
+		if (FlxG.keys.justPressed.F)
+			char.flipX = !char.flipX;
 		super.update(elapsed);
 	}
 
