@@ -36,7 +36,7 @@ class StoryMenuState extends MusicBeatState
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, true,true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['dad', 'bf', 'gf'],
@@ -335,6 +335,8 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyWeek = 3;
 		case 9:
 			PlayState.storyWeek = 1;
+		case 10:
+			PlayState.storyWeek = 7;
 		default:
 			PlayState.storyWeek = curWeek;
 

@@ -100,6 +100,9 @@ class FreeplayState extends MusicBeatState
 
 		if (StoryMenuState.weekUnlocked[9] || isDebug)
 			addWeek(['Lament', 'Continued-Day', 'Colormatch'], 1, ['dad-d1-alt','dad-d2-alt','dad-d3']);
+
+		if (StoryMenuState.weekUnlocked[10] || isDebug)
+			addWeek(['Bloody-Ascendance'], 7, ['tankman']);
 		// LOAD MUSIC
 
 		// LOAD CHARACTERS
