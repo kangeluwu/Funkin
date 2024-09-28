@@ -545,7 +545,7 @@ class PlayState extends MusicBeatState
 				add(waveSpriteFG);
 			 */
 
-			case 'guns' | 'stress' | 'ugh':
+			case 'guns' | 'stress' | 'ugh' | 'bloody-ascendance':
 				defaultCamZoom = 0.90;
 				curStage = 'tank';
 
@@ -936,7 +936,7 @@ trace('wtf');
 		add(camFollow);
 		switch (curSong.toLowerCase())
 		{
-			case 'tormentor' | 'guns-pico' | 'chiller' | 'lament' | 'continued-day' | 'colormatch':
+			case 'bloody-ascendance' | 'tormentor' | 'guns-pico' | 'chiller' | 'lament' | 'continued-day' | 'colormatch':
 				gf.alpha = 0;
 		}
 		FlxG.camera.follow(camFollow, LOCKON, 0.04);
